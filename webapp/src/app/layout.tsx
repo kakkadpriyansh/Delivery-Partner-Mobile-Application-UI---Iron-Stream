@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientBottomNav from "@/components/ClientBottomNav";
+import CapacitorInit from "@/components/CapacitorInit";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,12 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
       >
-        <div className="mx-auto w-full max-w-sm min-h-screen flex flex-col bg-white">
+        <div className="mx-auto w-full max-w-sm min-h-screen flex flex-col bg-white safe-area">
+          <CapacitorInit />
           <main className="flex-1">{children}</main>
           <ClientBottomNav />
         </div>

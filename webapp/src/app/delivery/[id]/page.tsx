@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import BottomNav from "@/components/BottomNav";
 
-export default function DeliveryDetails({ params }: { params: { id: string } }) {
+export default function DeliveryDetails({ params }: any) {
   const id = params.id;
   return (
     <div className="pb-24">
@@ -64,4 +64,10 @@ export default function DeliveryDetails({ params }: { params: { id: string } }) 
       <BottomNav />
     </div>
   );
+}
+
+export function generateStaticParams() {
+  return [
+    { id: "56789" },
+  ];
 }

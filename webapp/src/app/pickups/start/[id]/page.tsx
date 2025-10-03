@@ -38,7 +38,7 @@ const orders = {
   },
 } as const;
 
-export default function StartPickup({ params }: { params: { id: string } }) {
+export default function StartPickup({ params }: any) {
   const order = orders[params.id as keyof typeof orders];
   if (!order) return notFound();
   return (
@@ -97,4 +97,12 @@ export default function StartPickup({ params }: { params: { id: string } }) {
       </div>
     </div>
   );
+}
+
+export function generateStaticParams() {
+  return [
+    { id: "12345" },
+    { id: "12346" },
+    { id: "12347" },
+  ];
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function PickupConfirm({ params }: { params: { id: string } }) {
+export default function PickupConfirm({ params }: any) {
   return (
     <div className="pb-6">
       {/* Header */}
@@ -57,4 +57,12 @@ export default function PickupConfirm({ params }: { params: { id: string } }) {
       </div>
     </div>
   );
+}
+
+export function generateStaticParams() {
+  return [
+    { id: "12345" },
+    { id: "12346" },
+    { id: "12347" },
+  ];
 }

@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export default function CreateProfile() {
   return (
-    <div className="pb-6">
+    <div className="pb-24">
       {/* Header */}
       <header className="sticky top-0 bg-white shadow-sm">
         <div className="flex items-center justify-between px-4 py-3">
           <Link href="/verify" className="text-2xl leading-none text-black">←</Link>
           <h2 className="text-lg font-semibold text-black">Create Profile</h2>
-          <span className="w-6" />
+          <Link href="/pickups" className="text-blue-600 font-semibold">Save</Link>
         </div>
       </header>
 
