@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import BottomNav from "@/components/BottomNav";
 
 const pickups = [
   { id: "12345", name: "Alice Johnson", address: "123 Elm Street, Springfield", time: "Pickup between 9–11 AM" },
@@ -9,18 +10,19 @@ const pickups = [
 
 export default function Pickups() {
   return (
-    <div className="pb-6">
+    <div className="pb-24">
       {/* Header */}
       <header className="px-4 pt-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Today’s Pickups</h2>
+          <h2 className="text-lg font-semibold text-black">Today’s Pickups</h2>
           <span className="text-blue-600">🔔</span>
         </div>
+        {/* Intentionally no location line to match screenshot */}
       </header>
 
       {/* Map Banner */}
       <div className="mt-3 mx-4 relative rounded-xl overflow-hidden">
-        <Image src="/globe.svg" alt="Map" width={800} height={260} className="w-full h-40 object-cover" />
+        <Image src="/map-temp.svg" alt="Temp Location Map" width={800} height={260} className="w-full h-40 object-cover" />
         {/* Floating card */}
         <div className="absolute left-4 top-4 bg-white shadow-sm rounded-xl px-4 py-2 text-sm font-medium">
           3 pickups assigned today
@@ -29,6 +31,8 @@ export default function Pickups() {
         <span className="absolute left-6 bottom-6 text-blue-600">📍</span>
         <span className="absolute right-10 top-10 text-orange-500">📍</span>
         <span className="absolute right-6 bottom-8 text-blue-600">📍</span>
+
+        {/* Location chip removed to match screenshot */}
       </div>
 
       {/* Pickup cards */}
@@ -37,9 +41,9 @@ export default function Pickups() {
           <div key={p.id} className="rounded-xl border border-gray-200 bg-white shadow-sm p-4">
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-base font-semibold">{p.name}</p>
-                <p className="text-xs text-gray-500 mt-1">{p.address}</p>
-                <p className="text-[11px] mt-1">{p.time}</p>
+                <p className="text-base font-semibold text-black">{p.name}</p>
+                <p className="text-xs text-black mt-1">{p.address}</p>
+                <p className="text-[11px] mt-1 text-black">{p.time}</p>
               </div>
               <span className="text-xs text-gray-500">Order #{p.id}</span>
             </div>
@@ -58,10 +62,12 @@ export default function Pickups() {
 
       {/* Empty state */}
       <div className="mt-6 px-4 text-center">
-        <Image src="/scooter.svg" alt="Scooter" width={160} height={120} className="mx-auto" />
+        <Image src="/scooter.svg" alt="Scooter" width={180} height={130} className="mx-auto" />
         <p className="mt-2 text-base font-semibold">No pickups assigned yet.</p>
-        <p className="text-xs text-gray-500">Orders will appear here once assigned.</p>
+        <p className="text-xs text-black">Orders will appear here once assigned.</p>
       </div>
+
+      <BottomNav />
     </div>
   );
 }
